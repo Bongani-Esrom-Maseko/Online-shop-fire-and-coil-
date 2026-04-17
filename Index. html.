@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fire & Coil Store - Premium Pantsula Clothing</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h2 class="logo">🔥 Fire & Coil 🔥</h2>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalog.html">Shop</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="cart.html">Cart <span id="cart-count">0</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Ignite Your Style</h1>
+            <p>Premium Pantsula Street Culture Clothing</p>
+            <a href="catalog.html" class="btn-primary">Shop Now</a>
+        </div>
+    </header>
+
+    <section class="featured">
+        <h2>Featured Products</h2>
+        <div class="products-grid" id="featured-products">
+            <!-- Products loaded by JavaScript -->
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial">
+                <p>"Amazing quality and style! Love my Fire & Coil tee."</p>
+                <h4>- John</h4>
+            </div>
+            <div class="testimonial">
+                <p>"Perfect for street culture vibes. Highly recommend!"</p>
+                <h4>- Sarah</h4>
+            </div>
+            <div class="testimonial">
+                <p>"Best Pantsula collection ever!"</p>
+                <h4>- Mike</h4>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Fire & Coil Store. All rights reserved.</p>
+        <p>Contact: info@fireandcoil.com | WhatsApp: +27 72 208 6908</p>
+    </footer>
+
+    <script src="products.js"></script>
+    <script src="cart.js"></script>
+    <script>
+        // Load featured products
+        const featuredContainer = document.getElementById('featured-products');
+        const featured = products.slice(0, 3);
+        featured.forEach(product => {
+            featuredContainer.innerHTML += `
+                <div class="product-card">
+                    <img src="${product.image}" alt="${product.name}">
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                    <p class="price">R${product.price}</p>
+                    <button onclick="addToCart(${product.id})">Add to Cart</button>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
