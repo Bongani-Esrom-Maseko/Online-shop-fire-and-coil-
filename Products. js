@@ -1,0 +1,42 @@
+const products = [
+    {
+        id: 1,
+        name: "Fire & Coil Tee",
+        description: "Classic Fire & Coil design shirt",
+        price: 350,
+        image: "https://via.placeholder.com/300x300?text=Fire+Coil+Tee",
+        category: "T-Shirts"
+    },
+    {
+        id: 2,
+        name: "Pantsula Motion",
+        description: "Street dance inspired motion shirt",
+        price: 350,
+        image: "https://via.placeholder.com/300x300?text=Pantsula+Motion",
+        category: "T-Shirts"
+    },
+    {
+        id: 3,
+        name: "Ignite Movement",
+        description: "Bold movement statement wear",
+        price: 250,
+        image: "https://via.placeholder.com/300x300?text=Ignite+Movement",
+        category: "T-Shirts"
+    },
+    {
+        id: 4,
+        name: "Street Legacy",
+        description: "Heritage inspired street style",
+        price: 250,
+        image: "https://via.placeholder.com/300x300?text=Street+Legacy",
+        category: "Pants"
+    },
+    {
+        id: 5,
+        name: "Minimal Drip",
+        description: "Minimalist essential wear",
+        price: 200,
+        image: "https://via.placeholder.com/300x300?text=Minimal+Drip",
+        category: "Accessories"
+    }
+];
