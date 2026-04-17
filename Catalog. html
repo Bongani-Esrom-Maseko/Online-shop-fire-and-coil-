@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Fire & Coil Store</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h2 class="logo">🔥 Fire & Coil 🔥</h2>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalog.html">Shop</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="cart.html">Cart <span id="cart-count">0</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>Our Collection</h1>
+        <p>Explore our exclusive Pantsula street culture clothing</p>
+    </header>
+
+    <div class="catalog-container">
+        <aside class="filters">
+            <h3>Filter by Category</h3>
+            <label><input type="radio" name="category" value="all" checked> All Products</label>
+            <label><input type="radio" name="category" value="T-Shirts"> T-Shirts</label>
+            <label><input type="radio" name="category" value="Pants"> Pants</label>
+            <label><input type="radio" name="category" value="Accessories"> Accessories</label>
+        </aside>
+
+        <div class="products-section">
+            <div class="products-grid" id="products-container">
+                <!-- Products loaded by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Fire & Coil Store. All rights reserved.</p>
+        <p>Contact: info@fireandcoil.com | WhatsApp: +27 72 208 6908</p>
+    </footer>
+
+    <script src="products.js"></script>
+    <script src="cart.js"></script>
+    <script>
+        let selectedCategory = 'all';
+
+        function renderProducts() {
+            const container = document.getElementById('products-container');
+            container.innerHTML = '';
+
+            const filtered = selectedCategory === 'all' 
+                ? products 
+                : products.filter(p => p.category === selectedCategory);
+
+            filtered.forEach(product => {
+                container.innerHTML += `
+                    <div class="product-card">
+                        <img src="${product.image}" alt="${product.name}">
+                        <h3>${product.name}</h3>
+                        <p>${product.description}</p>
+                        <p class="price">R${product.price}</p>
+                        <button onclick="addToCart(${product.id})">Add to Cart</button>
+                    </div>
+                `;
+            });
+        }
+
+        // Filter event listeners
+        document.querySelectorAll('input[name="category"]').forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                selectedCategory = e.target.value;
+                renderProducts();
+            });
+        });
+
+        // Load products on page load
+        renderProducts();
+    </script>
+</body>
+</html>
